@@ -56,11 +56,16 @@
             width: 100%;
             text-align: center; /* Align text to the left */
         }
+        .swagger_description{
+            align-items: center;
+            margin-top: 20px;
+
+        }
     </style>
 </head>
 <body>
     <h1>Service Analyzer</h1>
-    <p>App Detecting Which Users need which Service from Users Chats</p>
+    <pre>App Detecting Which Users need which Service from Users Chats</pre>
     <div class="button-container">
         <div class="button" id="demoButton">
             <img src="{{ url_for('static', filename='app.png') }}" alt="Quick Demo">
@@ -78,8 +83,11 @@
     <div id="logs">
         <h4>Logs</h4>
         <pre id="logContent">Welcome to Service Analyzer! Click a button to get started.</pre>
-       
-        <p>Swagger has Two APIs. One for Text Checking. And Other for uploading chat text file which will have multiple chats</p>
+    </div>
+    <div class="swagger_description">
+        <p><b>Swagger has Two APIs.</b></p>
+        <pre><b>1-</b> One for Text Checking that detects service need from the input text.</pre>
+        <pre><b>2-</b> And Other for uploading large chat file having multiple chats among multiple users.</pre>
     </div>
 
     <script>
