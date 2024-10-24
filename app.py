@@ -4,11 +4,7 @@ from service_analyzer import analyze_chat_for_services, analyze_chat_text
 import os
 from flask_cors import CORS
 
-
-
-
 app = Flask(__name__)
-
 CORS(app)  # Allow all origins by default
 
 # Configuration for Swagger UI
@@ -27,7 +23,11 @@ app.register_blueprint(swaggerui_blueprint, url_prefix=SWAGGER_URL)
 
 @app.route('/')
 def home():
-    return render_template('analyze_text.html')
+    return render_template('home.html')  # Render the home template
+
+@app.route('/analyze-text')
+def analyze_text_page():
+    return render_template('analyze_text.html')  # Render the analyze text page
 
 # Serve the OpenAPI specification
 @app.route(API_URL)

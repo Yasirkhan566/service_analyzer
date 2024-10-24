@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Service Analyzer Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            background-color: #f8f9fa;
+        }
+        h1 {
+            font-family: 'Arial', sans-serif;
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: #343a40;  /* Darker shade for better contrast */
+        }
+        .button-container {
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .button {
+            background-color: #ffffff;
+            border: 2px solid #007bff; /* Blue border */
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .button:hover {
+            background-color: #007bff; /* Change background on hover */
+            color: white;
+        }
+        .button img {
+            max-width: 80px; /* Set a max width for logos */
+            margin-bottom: 10px; /* Space between image and text */
+        }
+        #logs {
+            margin-top: 30px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            background: #f9f9f9;
+            max-height: 300px;
+            overflow-y: auto;
+            width: 100%;
+            text-align: center; /* Align text to the left */
+        }
+    </style>
+</head>
+<body>
+    <h1>Service Analyzer</h1>
+    <div class="button-container">
+        <div class="button" id="demoButton">
+            <img src="{{ url_for('static', filename='app.png') }}" alt="Quick Demo">
+            <div>Quick Demo</div>
+        </div>
+        <div class="button" id="swaggerButton">
+            <img src="{{ url_for('static', filename='swagger.png') }}" alt="Swagger UI">
+            <div>Swagger</div>
+        </div>
+        <div class="button" id="githubButton">
+            <img src="{{ url_for('static', filename='github.webp') }}" alt="GitHub">
+            <div>GitHub</div>
+        </div>
+    </div>
+    <div id="logs">
+        <h4>Logs</h4>
+        <pre id="logContent">Welcome to Service Analyzer! Click a button to get started.</pre>
+       
+        <p>Swagger has Two APIs. One for Text Checking. And Other for uploading chat text file which will have multiple chats</p>
+    </div>
+
+    <script>
+        document.getElementById('demoButton').onclick = function() {
+            // Load the analyze_text.html content
+            window.location.href = '/analyze-text';
+        };
+        
+        document.getElementById('swaggerButton').onclick = function() {
+            // Redirect to Swagger UI
+            window.location.href = '/swagger';
+        };
+        
+        document.getElementById('githubButton').onclick = function() {
+            // Redirect to GitHub repository
+            window.open('https://github.com/Yasirkhan566/service_analyzer', '_blank');
+        };
+    </script>
+</body>
+</html>
